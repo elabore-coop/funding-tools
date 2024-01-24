@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="ir_actions_act_window_funding_r1" model="ir.actions.act_window">
+      <field name="help">&lt;p class="o_view_nocontent_smiling_face"&gt;Create a new funding
+        campaign&lt;/p&gt;</field>
+      <field name="res_model">funding.campaign</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="name">Funding Campaigns</field>
+      <field name="target">current</field>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False" />
+      <field name="limit">80</field>
+    </record>
+    <record id="ir_actions_act_window_funding_r2" model="ir.actions.act_window">
+      <field name="help">&lt;p class="o_view_nocontent_smiling_face"&gt;Create a new
+        campaign participant&lt;/p&gt;</field>
+      <field name="res_model">crm.lead</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+      <field name="name">Campaign Participants</field>
+      <field name="target">current</field>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False" />
+      <field name="limit">80</field>
+    </record>
+  </data>
+</odoo>

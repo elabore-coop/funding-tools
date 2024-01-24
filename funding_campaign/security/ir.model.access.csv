@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_funding_campaign_manager,access_funding_campaign_manager,model_funding_campaign,group_funding_campaign_manager,1,1,1,1
+access_campaign_step_manager,access_campaign_step_manager,model_campaign_step,group_funding_campaign_manager,1,1,1,1

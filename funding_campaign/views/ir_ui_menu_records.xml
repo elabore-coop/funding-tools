@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="ir_ui_menu_funding_r0" name="Funding Campaigns" sequence="10"
+      groups="group_funding_campaign_manager" />
+    <menuitem id="ir_ui_menu_funding_r1" name="Funding Campaigns" parent="ir_ui_menu_funding_r0"
+      sequence="10" action="ir_actions_act_window_funding_r1" />
+    <menuitem id="ir_ui_menu_funding_r2" name="Campaigns Participants"
+      parent="ir_ui_menu_funding_r0"
+      sequence="10" action="ir_actions_act_window_funding_r2" />
+  </data>
+</odoo>

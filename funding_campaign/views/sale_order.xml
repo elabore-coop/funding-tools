@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- LEAD VIEWS -->
+        <record model="ir.ui.view" id="view_order_form_funding_campaign">
+            <field name="name">sale.order.form.funding.campaign</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']" position="inside">
+                    <group>
+                        <group name="funding_campaign" string="Funding campaign">
+                            <!-- attrs="{'invisible': [('is_funding_campaign_order', '=', False)]}"> -->
+                            <field name="is_funding_campaign_order" invisible="1" />
+                            <field class="text-break" name="funding_campaign_id"
+                                options="{'no_create': True}"
+                            />
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- EVENT.REGISTRATION ACTIONS -->
+        <record id="act_sale_order_from_campaign" model="ir.actions.act_window">
+            <field name="res_model">sale.order</field>
+            <field name="name">Orders</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('funding_campaign_id', '=', active_id)]</field>
+            <field name="context">{'default_funding_campaign_id': active_id}</field>
+            <!-- <field name="search_view_id" ref="crm_lead_view_search_campaign_specific" /> -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Order yet!
+                </p>
+                <p>
+                    Wait until Participants register to your Campaign or create their registrations
+                    manually.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

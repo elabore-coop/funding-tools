@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- LEAD VIEWS -->
+        <!-- <record model="ir.ui.view" id="view_campaign_registration_tree">
+            <field name="name">crm.lead.tree.funding.campaign</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="is_funding_campaign_lead" invisible="1" />
+                    <field name="funding_campaign_id"
+                        attrs="{'invisible': [('is_funding_campaign_lead', '=', False)]}" />
+                </xpath>
+            </field>
+        </record> -->
+
+        <record model="ir.ui.view" id="crm_lead_view_form_funding_campaign">
+            <field name="name">crm.lead.form.funding.campaign</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group" position="inside">
+                    <group string="Registration Information" name="registration">
+                        <!-- attrs="{'invisible': [('is_funding_campaign_lead', '=', False)]}" /> -->
+                        <field name="is_funding_campaign_lead" invisible="1" />
+                        <field class="text-break" name="funding_campaign_id"
+                            options="{'no_create': True}" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- EVENT.REGISTRATION ACTIONS -->
+        <record id="act_crm_from_campaign" model="ir.actions.act_window">
+            <field name="res_model">crm.lead</field>
+            <field name="name">Participants</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('funding_campaign_id', '=', active_id)]</field>
+            <field name="context">{'default_funding_campaign_id': active_id}</field>
+            <!-- <field name="search_view_id" ref="crm_lead_view_search_campaign_specific" /> -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Participant yet!
+                </p>
+                <p>
+                    Wait until Participants register to your Campaign or create their registrations
+                    manually.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
