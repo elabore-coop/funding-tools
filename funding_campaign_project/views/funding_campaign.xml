@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="funding_campaign_view_form_project" model="ir.ui.view">
+            <field name="name">funding.campaign.view.form.project</field>
+            <field name="inherit_id" ref="funding_campaign.funding_campaign_view_form" />
+            <field name="model">funding.campaign</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="project_id" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
